@@ -12,6 +12,48 @@ export default function TextForm(props) {
         setText(newText)
     }
 
+    const handleAlterClick = ()=>{
+      let newText = "";
+      // for(let i in text){
+      //   console.log(i + text[i])
+      // }
+      for(let i in text){
+        if(text[i]!==" "){
+          if(i%2===0){
+            newText = newText + text[i].toLowerCase();
+          }
+          else{
+            newText = newText + text[i].toUpperCase();
+          }
+        }
+        else{
+          newText = newText + " "
+        }
+      }
+      setText(newText)
+    }
+
+    const handleTitleClick = ()=>{
+      let text1 = text.trim();
+      let newText = "";
+      for(let i in text1){
+        let index = Number.parseInt(i) + 1;
+        if(text1[i]===" "){
+          newText = newText + text1[i];
+          newText = newText + text1[index].toUpperCase()
+        }
+        else{
+          if(text1[i-1]!==-1 && text1[i-1]!==" ")
+          {
+            newText = newText + text1[i].toLowerCase();
+          }
+        }
+      }
+      let text3 = newText.substring(1);
+      newText = newText[0].toUpperCase() + text3
+      setText(newText);
+    }
+
     const handleonChange = (event)=>{
         // console.log("On Change")
         setText(event.target.value)
@@ -29,10 +71,10 @@ export default function TextForm(props) {
         <textarea className="form-control" id="myBox" rows="8" value={text}     
          onChange={handleonChange}></textarea>
         </div>
-        <button className="btn btn-primary mx-2" onClick={handleUpClick}>Convert to 
-         UpperCase</button>
-        <button className="btn btn-primary mx-2" onClick={handleLoClick}>Convert to 
-         LowerCase</button>
+        <button className="btn btn-primary mx-2" onClick={handleUpClick}>Convert to UpperCase</button>
+        <button className="btn btn-primary mx-2" onClick={handleLoClick}>Convert to LowerCase</button>
+        <button className="btn btn-primary mx-2" onClick={handleAlterClick}>Convert to AlternateCase</button>
+        <button className="btn btn-primary mx-2" onClick={handleTitleClick}>Convert to TitleCase</button>
     </div>
     <div className="container my-3">
       <h1>Your text summary</h1>
