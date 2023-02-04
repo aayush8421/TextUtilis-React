@@ -2,10 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 
 export default function Navbar(props) {
+  console.log(props.mode);
   return (
     <nav
       className={`navbar navbar-expand-lg bg-body-tertiary bg-${props.mode}`}
-      data-bs-theme={`${props.mode}`}
+      data-bs-theme={`${props.mode === "light" ? "light" : "dark"}`}
     >
       <div className="container-fluid">
         <a className="navbar-brand" href="/">
@@ -25,24 +26,33 @@ export default function Navbar(props) {
             </li>
           </ul>
           <div
-            className={`form-check form-switch text-${
-              props.mode === "light" ? "dark" : "light"
-            }`}
-          >
-            <input
-              className="form-check-input"
-              onClick={props.toggleMode}
-              type="checkbox"
-              role="switch"
-              id="flexSwitchCheckDefault"
-            />
-            <label
-              className="form-check-label"
-              htmlFor="flexSwitchCheckDefault"
-            >{`Enable ${
-              props.mode === "light" ? "dark" : "light"
-            } Mode`}</label>
-          </div>
+            className="red mx-2"
+            onClick={() => props.toggleMode("1")}
+            style={{
+              backgroundColor: props.mode === "danger" ? "white" : "red",
+            }}
+          ></div>
+          <div
+            className="green mx-2"
+            onClick={() => props.toggleMode("2")}
+            style={{
+              backgroundColor: props.mode === "success" ? "white" : "green",
+            }}
+          ></div>
+          <div
+            className="blue mx-2"
+            onClick={() => props.toggleMode("3")}
+            style={{
+              backgroundColor: props.mode === "primary" ? "white" : "blue",
+            }}
+          ></div>
+          <div
+            className="toggle mx-2"
+            onClick={() => props.toggleMode("4")}
+            style={{
+              backgroundColor: props.mode === "dark" ? "white" : "black",
+            }}
+          ></div>
         </div>
       </div>
     </nav>

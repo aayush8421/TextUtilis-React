@@ -5,13 +5,13 @@ export default function TextForm(props) {
     // console.log("Uppercase was clicked : " + text)
     let newText = text.toUpperCase();
     setText(newText);
-    props.showAlert("Converted to Upper case","success")
+    props.showAlert("Converted to Upper case", "success");
   };
 
   const handleLoClick = () => {
     let newText = text.toLowerCase();
     setText(newText);
-    props.showAlert("Converted to Lower case","success")
+    props.showAlert("Converted to Lower case", "success");
   };
 
   const handleAlterClick = () => {
@@ -31,7 +31,7 @@ export default function TextForm(props) {
       }
     }
     setText(newText);
-    props.showAlert("Converted to Alternate case","success")
+    props.showAlert("Converted to Alternate case", "success");
   };
 
   const handleTitleClick = () => {
@@ -51,7 +51,7 @@ export default function TextForm(props) {
     let text3 = newText.substring(1);
     newText = newText[0].toUpperCase() + text3;
     setText(newText);
-    props.showAlert("Converted to Title case","success")
+    props.showAlert("Converted to Title case", "success");
   };
 
   const handleonChange = (event) => {
@@ -60,6 +60,10 @@ export default function TextForm(props) {
   };
 
   const [text, setText] = useState("Enter text here");
+  // const [bg, setbg] = useState({
+  //   backgroundColor: "white",
+  //   color: "black",
+  // });
   // text = "new text"// wrong way to change the state
   // setText("new text")// correct way to change the state
 
@@ -78,21 +82,33 @@ export default function TextForm(props) {
             value={text}
             onChange={handleonChange}
             style={{
-              backgroundColor: props.mode === "dark" ? "#042743" : "white",
+              backgroundColor: props.mode === "dark" ? "#4f4f4f" : "white",
               color: props.mode === "dark" ? "white" : "black",
             }}
           ></textarea>
         </div>
-        <button className="btn btn-primary mx-2" onClick={handleUpClick}>
+        <button
+          className={`btn btn-${props.mode} mx-2`}
+          onClick={handleUpClick}
+        >
           Convert to UpperCase
         </button>
-        <button className="btn btn-primary mx-2" onClick={handleLoClick}>
+        <button
+          className={`btn btn-${props.mode} mx-2`}
+          onClick={handleLoClick}
+        >
           Convert to LowerCase
         </button>
-        <button className="btn btn-primary mx-2" onClick={handleAlterClick}>
+        <button
+          className={`btn btn-${props.mode} mx-2`}
+          onClick={handleAlterClick}
+        >
           Convert to AlternateCase
         </button>
-        <button className="btn btn-primary mx-2" onClick={handleTitleClick}>
+        <button
+          className={`btn btn-${props.mode} mx-2`}
+          onClick={handleTitleClick}
+        >
           Convert to TitleCase
         </button>
       </div>
