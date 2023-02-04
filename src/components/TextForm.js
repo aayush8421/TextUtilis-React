@@ -5,11 +5,13 @@ export default function TextForm(props) {
     // console.log("Uppercase was clicked : " + text)
     let newText = text.toUpperCase();
     setText(newText);
+    props.showAlert("Converted to Upper case","success")
   };
 
   const handleLoClick = () => {
     let newText = text.toLowerCase();
     setText(newText);
+    props.showAlert("Converted to Lower case","success")
   };
 
   const handleAlterClick = () => {
@@ -29,6 +31,7 @@ export default function TextForm(props) {
       }
     }
     setText(newText);
+    props.showAlert("Converted to Alternate case","success")
   };
 
   const handleTitleClick = () => {
@@ -48,6 +51,7 @@ export default function TextForm(props) {
     let text3 = newText.substring(1);
     newText = newText[0].toUpperCase() + text3;
     setText(newText);
+    props.showAlert("Converted to Title case","success")
   };
 
   const handleonChange = (event) => {
@@ -75,7 +79,7 @@ export default function TextForm(props) {
             onChange={handleonChange}
             style={{
               backgroundColor: props.mode === "dark" ? "#042743" : "white",
-              color: props.mode === "dark" ? "white" : "black"
+              color: props.mode === "dark" ? "white" : "black",
             }}
           ></textarea>
         </div>
@@ -103,7 +107,11 @@ export default function TextForm(props) {
         </p>
         <p>{0.008 * (text === "" ? 0 : text.split(" ").length)} Minutes read</p>
         <h2>Preview</h2>
-        <p>{text.length>0?text:"Enter something in the textbox above to preview it here"}</p>
+        <p>
+          {text.length > 0
+            ? text
+            : "Enter something in the textbox above to preview it here"}
+        </p>
       </div>
     </>
   );
