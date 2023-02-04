@@ -61,7 +61,10 @@ export default function TextForm(props) {
 
   return (
     <>
-      <div className="container">
+      <div
+        className="container"
+        style={{ color: props.mode === "dark" ? "white" : "black" }}
+      >
         <h1>{props.heading}</h1>
         <div className="mb-3">
           <textarea
@@ -70,6 +73,10 @@ export default function TextForm(props) {
             rows="8"
             value={text}
             onChange={handleonChange}
+            style={{
+              backgroundColor: props.mode === "dark" ? "#042743" : "white",
+              color: props.mode === "dark" ? "white" : "black"
+            }}
           ></textarea>
         </div>
         <button className="btn btn-primary mx-2" onClick={handleUpClick}>
@@ -85,7 +92,10 @@ export default function TextForm(props) {
           Convert to TitleCase
         </button>
       </div>
-      <div className="container my-3">
+      <div
+        className="container my-3"
+        style={{ color: props.mode === "dark" ? "white" : "black" }}
+      >
         <h1>Your text summary</h1>
         <p>
           {text === "" ? 0 : text.split(" ").length} words and {text.length}{" "}
@@ -93,7 +103,7 @@ export default function TextForm(props) {
         </p>
         <p>{0.008 * (text === "" ? 0 : text.split(" ").length)} Minutes read</p>
         <h2>Preview</h2>
-        <p>{text}</p>
+        <p>{text.length>0?text:"Enter something in the textbox above to preview it here"}</p>
       </div>
     </>
   );
