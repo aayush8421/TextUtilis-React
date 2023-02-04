@@ -25,10 +25,18 @@ function App() {
       setmode("dark");
       document.body.style.backgroundColor = "#042743";
       showAlert("Dark mode has been enabled", "success");
+      document.title = 'TextUtilis - Dark Mode'
+      // setInterval(()=>{
+      //   document.title = 'TextUtilis is amazing'
+      // },2000)
+      // setInterval(()=>{
+      //   document.title = 'Install TextUtilis now'
+      // },1500)
     } else {
       setmode("light");
       document.body.style.backgroundColor = "white";
       showAlert("Light mode has been enabled", "success");
+      document.title = 'TextUtilis - Light Mode'
     }
   };
 
