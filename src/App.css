@@ -36,3 +36,27 @@
     transform: rotate(360deg);
   }
 }
+
+.red{
+  height: 20px;
+  width: 20px;
+  background-color: red;
+  border-radius: 50%;
+}
+.green{
+  height: 20px;
+  width: 20px;
+  background-color: green;
+  border-radius: 50%;
+}
+.blue{
+  height: 20px;
+  width: 20px;
+  background-color: blue;
+  border-radius: 50%;
+}
+.toggle{
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+}

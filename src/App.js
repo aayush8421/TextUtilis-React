@@ -21,23 +21,70 @@ function App() {
     }, 1500);
   };
 
-  const toggleMode = () => {
-    if (mode === "light") {
-      setmode("dark");
-      document.body.style.backgroundColor = "#042743";
-      showAlert("Dark mode has been enabled", "success");
-      document.title = "TextUtilis - Dark Mode";
-      // setInterval(()=>{
-      //   document.title = 'TextUtilis is amazing'
-      // },2000)
-      // setInterval(()=>{
-      //   document.title = 'Install TextUtilis now'
-      // },1500)
-    } else {
-      setmode("light");
-      document.body.style.backgroundColor = "white";
-      showAlert("Light mode has been enabled", "success");
-      document.title = "TextUtilis - Light Mode";
+  const toggleMode = (value) => {
+    if (value === "4") {
+      if (
+        mode === "primary" ||
+        mode === "danger" ||
+        mode === "success" ||
+        mode === "light"
+      ) {
+        setmode("dark");
+        document.body.style.backgroundColor = "#4f4f4f";
+        showAlert("Dark mode has been enabled", "success");
+      } else {
+        setmode("light");
+        document.body.style.backgroundColor = "white";
+        showAlert("Light mode has been enabled", "success");
+      }
+    }
+    if (value === "3") {
+      if (
+        mode === "light" ||
+        mode === "dark" ||
+        mode === "danger" ||
+        mode === "success"
+      ) {
+        setmode("primary");
+        document.body.style.backgroundColor = "#001e4b";
+        showAlert("Blue mode has been enabled", "success");
+      } else {
+        setmode("light");
+        document.body.style.backgroundColor = "white";
+        showAlert("Light mode has been enabled", "success");
+      }
+    }
+    if (value === "2") {
+      if (
+        mode === "light" ||
+        mode === "dark" ||
+        mode === "danger" ||
+        mode === "primary"
+      ) {
+        setmode("success");
+        document.body.style.backgroundColor = "#004425";
+        showAlert("Green mode has been enabled", "success");
+      } else {
+        setmode("light");
+        document.body.style.backgroundColor = "white";
+        showAlert("Light mode has been enabled", "success");
+      }
+    }
+    if (value === "1") {
+      if (
+        mode === "light" ||
+        mode === "dark" ||
+        mode === "primary" ||
+        mode === "success"
+      ) {
+        setmode("danger");
+        document.body.style.backgroundColor = "#67000a";
+        showAlert("Red mode has been enabled", "success");
+      } else {
+        setmode("light");
+        document.body.style.backgroundColor = "white";
+        showAlert("Light mode has been enabled", "success");
+      }
     }
   };
 
