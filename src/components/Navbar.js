@@ -2,29 +2,57 @@ import React from "react";
 import PropTypes from "prop-types";
 
 export default function Navbar(props) {
-  console.log(props.mode);
+  // console.log(props.mode);
   return (
     <nav
-      className={`navbar navbar-expand-lg bg-body-tertiary bg-${props.mode}`}
-      data-bs-theme={`${props.mode === "light" ? "light" : "dark"}`}
+      // className={`navbar navbar-expand-lg bg-body-tertiary bg-${props.mode}`}
+      // data-bs-theme={`${props.mode === "light" ? "light" : "dark"}`}
+      className={`navbar navbar-expand-lg`}
+      style={{
+        backgroundColor:
+          props.mode === "dark"
+            ? "#363636"
+            : props.mode === "primary"
+            ? "#0000bd"
+            : props.mode === "success"
+            ? "#009e00"
+            : props.mode === "danger"
+            ? "#bd0000"
+            : "#f8f8f8",
+        color: props.mode === "light" ? "black" : "white",
+      }}
     >
       <div className="container-fluid">
-        <a className="navbar-brand" href="/">
+        <a
+          className="navbar-brand"
+          style={{ color: props.mode === "light" ? "black" : "white" }}
+          href="/"
+        >
           {props.title}
         </a>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="/">
+              <a
+                className="nav-link active"
+                style={{ color: props.mode === "light" ? "black" : "white" }}
+                aria-current="page"
+                href="/"
+              >
                 Home
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/">
+              <a
+                className="nav-link"
+                style={{ color: props.mode === "light" ? "black" : "white" }}
+                href="/"
+              >
                 {props.aboutText}
               </a>
             </li>
           </ul>
+          <div>Choose Your Theme :</div>
           <div
             className="red mx-2"
             onClick={() => props.toggleMode("1")}

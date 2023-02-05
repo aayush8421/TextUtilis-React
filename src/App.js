@@ -45,7 +45,7 @@ function App() {
         mode === "success"
       ) {
         setmode("primary");
-        document.body.style.backgroundColor = "blue";
+        document.body.style.backgroundColor = "#001e4b";
         showAlert("Blue mode has been enabled", "success");
       } else {
         setmode("light");
@@ -61,7 +61,7 @@ function App() {
         mode === "primary"
       ) {
         setmode("success");
-        document.body.style.backgroundColor = "green";
+        document.body.style.backgroundColor = "#004425";
         showAlert("Green mode has been enabled", "success");
       } else {
         setmode("light");

@@ -71,7 +71,7 @@ export default function TextForm(props) {
     <>
       <div
         className="container"
-        style={{ color: props.mode === "dark" ? "white" : "black" }}
+        style={{ color: props.mode === "light" ? "black" : "white" }}
       >
         <h1>{props.heading}</h1>
         <div className="mb-3">
@@ -82,8 +82,17 @@ export default function TextForm(props) {
             value={text}
             onChange={handleonChange}
             style={{
-              backgroundColor: props.mode === "dark" ? "#4f4f4f" : "white",
-              color: props.mode === "dark" ? "white" : "black",
+              backgroundColor:
+                props.mode === "dark"
+                  ? "#4f4f4f"
+                  : props.mode === "primary"
+                  ? "#001e4b"
+                  : props.mode === "success"
+                  ? "#004425"
+                  : props.mode === "danger"
+                  ? "#67000a"
+                  : "white",
+              color: props.mode === "light" ? "black" : "white",
             }}
           ></textarea>
         </div>
@@ -114,7 +123,7 @@ export default function TextForm(props) {
       </div>
       <div
         className="container my-3"
-        style={{ color: props.mode === "dark" ? "white" : "black" }}
+        style={{ color: props.mode === "light" ? "black" : "white" }}
       >
         <h1>Your text summary</h1>
         <p>
