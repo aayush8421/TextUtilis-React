@@ -60,10 +60,6 @@ export default function TextForm(props) {
   };
 
   const [text, setText] = useState("Enter text here");
-  // const [bg, setbg] = useState({
-  //   backgroundColor: "white",
-  //   color: "black",
-  // });
   // text = "new text"// wrong way to change the state
   // setText("new text")// correct way to change the state
 

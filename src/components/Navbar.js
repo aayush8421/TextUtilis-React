@@ -3,11 +3,8 @@ import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 
 export default function Navbar(props) {
-  // console.log(props.mode);
   return (
     <nav
-      // className={`navbar navbar-expand-lg bg-body-tertiary bg-${props.mode}`}
-      // data-bs-theme={`${props.mode === "light" ? "light" : "dark"}`}
       className={`navbar navbar-expand-lg`}
       style={{
         backgroundColor:
@@ -24,33 +21,33 @@ export default function Navbar(props) {
       }}
     >
       <div className="container-fluid">
-        <a
+        <Link
           className="navbar-brand"
           style={{ color: props.mode === "light" ? "black" : "white" }}
-          href="/"
+          to="/"
         >
           {props.title}
-        </a>
+        </Link>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a
+              <Link
                 className="nav-link active"
                 style={{ color: props.mode === "light" ? "black" : "white" }}
                 aria-current="page"
-                href="/"
+                to="/"
               >
                 Home
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a
+              <Link
                 className="nav-link"
                 style={{ color: props.mode === "light" ? "black" : "white" }}
-                href="/"
+                to="/about"
               >
                 {props.aboutText}
-              </a>
+              </Link>
             </li>
           </ul>
           <div>Choose Your Theme :</div>

@@ -6,7 +6,6 @@ import React, { useState } from "react";
 import Alert from "./components/Alert";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-// let name = "<b>Aayush</b>"
 function App() {
   const [mode, setmode] = useState("light"); // whether dark mode is enabled or not
   const [alert, setalert] = useState(null);
@@ -32,10 +31,18 @@ function App() {
         setmode("dark");
         document.body.style.backgroundColor = "#4f4f4f";
         showAlert("Dark mode has been enabled", "success");
+        document.title = "TextUtilis - Dark Mode";
+        // setInterval(()=>{
+        //   document.title = "TextUtilis is amazing"
+        // },2000)
+        // setInterval(()=>{
+        //   document.title = "Install TextUtilis now"
+        // },1500)
       } else {
         setmode("light");
         document.body.style.backgroundColor = "white";
         showAlert("Light mode has been enabled", "success");
+        document.title = "TextUtilis - Light Mode";
       }
     }
     if (value === "3") {
@@ -48,10 +55,12 @@ function App() {
         setmode("primary");
         document.body.style.backgroundColor = "#001e4b";
         showAlert("Blue mode has been enabled", "success");
+        document.title = "TextUtilis - Blue Mode";
       } else {
         setmode("light");
         document.body.style.backgroundColor = "white";
         showAlert("Light mode has been enabled", "success");
+        document.title = "TextUtilis - Light Mode";
       }
     }
     if (value === "2") {
@@ -64,10 +73,12 @@ function App() {
         setmode("success");
         document.body.style.backgroundColor = "#004425";
         showAlert("Green mode has been enabled", "success");
+        document.title = "TextUtilis - Green Mode";
       } else {
         setmode("light");
         document.body.style.backgroundColor = "white";
         showAlert("Light mode has been enabled", "success");
+        document.title = "TextUtilis - Light Mode";
       }
     }
     if (value === "1") {
@@ -80,10 +91,12 @@ function App() {
         setmode("danger");
         document.body.style.backgroundColor = "#67000a";
         showAlert("Red mode has been enabled", "success");
+        document.title = "TextUtilis - Red Mode";
       } else {
         setmode("light");
         document.body.style.backgroundColor = "white";
         showAlert("Light mode has been enabled", "success");
+        document.title = "TextUtilis - Light Mode";
       }
     }
   };
@@ -109,6 +122,7 @@ function App() {
                 />
               }
             />
+            {/* <About /> */}
           </Routes>
         </div>
       </Router>
