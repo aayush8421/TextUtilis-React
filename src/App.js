@@ -55,7 +55,7 @@ function App() {
         setmode("primary");
         document.body.style.backgroundColor = "#001e4b";
         showAlert("Blue mode has been enabled", "success");
-        document.title = "TextUtilis - Blue Mode";
+        // document.title = "TextUtilis - Blue Mode";
       } else {
         setmode("light");
         document.body.style.backgroundColor = "white";
