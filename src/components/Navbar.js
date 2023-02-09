@@ -23,7 +23,7 @@ export default function Navbar(props) {
         <a
           className="navbar-brand"
           style={{ color: props.mode === "light" ? "black" : "white" }}
-          href="/"
+          href="#"
         >
           {props.title}
         </a>
@@ -45,7 +45,7 @@ export default function Navbar(props) {
                 className="nav-link"
                 style={{ color: props.mode === "light" ? "black" : "white" }}
                 aria-current="page"
-                href="/"
+                href="#"
               >
                 Home
               </a>
