@@ -1,4 +1,3 @@
-// import React, { useState } from "react";
 import React from "react";
 
 export default function About(props) {
@@ -15,7 +14,7 @@ export default function About(props) {
         : "white",
     color: props.mode === "light" ? "black" : "white",
     border: "1px solid",
-    borderColor: props.mode === "light" ? "black" : "white"
+    borderColor: props.mode === "light" ? "black" : "white",
   };
   return (
     <div className="container">
@@ -25,7 +24,6 @@ export default function About(props) {
       >
         About Us
       </h1>
-      {/* <div className="accordion" id="accordionExample" style={myStyle}> */}
       <div className="accordion" id="accordionExample">
         <div className="accordion-item">
           <h2 className="accordion-header" id="headingOne">

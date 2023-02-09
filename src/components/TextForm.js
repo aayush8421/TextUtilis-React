@@ -2,7 +2,6 @@ import React, { useState } from "react";
 
 export default function TextForm(props) {
   const handleUpClick = () => {
-    // console.log("Uppercase was clicked : " + text)
     let newText = text.toUpperCase();
     setText(newText);
     props.showAlert("Converted to Upper case", "success");
@@ -16,9 +15,6 @@ export default function TextForm(props) {
 
   const handleAlterClick = () => {
     let newText = "";
-    // for(let i in text){
-    //   console.log(i + text[i])
-    // }
     for (let i in text) {
       if (text[i] !== " ") {
         if (i % 2 === 0) {
@@ -54,26 +50,22 @@ export default function TextForm(props) {
     props.showAlert("Converted to Title case", "success");
   };
 
-  const handleCopy=()=>{
-    let text = document.getElementById("myBox");
-    text.select();
-    navigator.clipboard.writeText(text.value);
-    document.getSelection().removeAllRanges();
-    props.showAlert("Copied to clipboard","success");
-  }
+  const handleCopy = () => {
+    navigator.clipboard.writeText(text);
+    props.showAlert("Copied to clipboard", "success");
+  };
 
-  const handleClear=()=>{
+  const handleClear = () => {
     setText("");
-  }
+  };
 
-  const handleExtraSpaces=()=>{
+  const handleExtraSpaces = () => {
     let newText = text.split(/[ ]+/);
     setText(newText.join(" "));
-    props.showAlert("Extra spaces removed","success")
-  }
+    props.showAlert("Extra spaces removed", "success");
+  };
 
   const handleonChange = (event) => {
-    // console.log("On Change")
     setText(event.target.value);
   };
 
@@ -169,7 +161,7 @@ export default function TextForm(props) {
         <h1>Your text summary</h1>
         <p>
           {
-            text.split(" ").filter((element) => {
+            text.split(/\s+/).filter((element) => {
               return element.length !== 0;
             }).length
           }{" "}
@@ -179,17 +171,13 @@ export default function TextForm(props) {
           {0.008 *
             (text === ""
               ? 0
-              : text.split(" ").filter((element) => {
+              : text.split(/\s+/).filter((element) => {
                   return element.length !== 0;
                 }).length)}{" "}
           Minutes read
         </p>
         <h2>Preview</h2>
-        <p>
-          {text.length > 0
-            ? text
-            : "Nothing to preview"}
-        </p>
+        <p>{text.length > 0 ? text : "Nothing to preview"}</p>
       </div>
     </>
   );
