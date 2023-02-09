@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 export default function Navbar(props) {
   let navTheme = {
@@ -20,13 +20,13 @@ export default function Navbar(props) {
   return (
     <nav className={`navbar navbar-expand-lg`} style={navTheme}>
       <div className="container-fluid">
-        <Link
+        <a
           className="navbar-brand"
           style={{ color: props.mode === "light" ? "black" : "white" }}
-          to="/"
+          href="/"
         >
           {props.title}
-        </Link>
+        </a>
         <button
           className="navbar-toggler"
           type="button"
@@ -41,16 +41,16 @@ export default function Navbar(props) {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link
+              <a
                 className="nav-link"
                 style={{ color: props.mode === "light" ? "black" : "white" }}
                 aria-current="page"
-                to="/"
+                href="/"
               >
                 Home
-              </Link>
+              </a>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <Link
                 className="nav-link"
                 style={{ color: props.mode === "light" ? "black" : "white" }}
@@ -58,7 +58,7 @@ export default function Navbar(props) {
               >
                 {props.aboutText}
               </Link>
-            </li>
+            </li> */}
           </ul>
           <div
             className="theme"
