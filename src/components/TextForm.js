@@ -54,6 +54,24 @@ export default function TextForm(props) {
     props.showAlert("Converted to Title case", "success");
   };
 
+  const handleCopy=()=>{
+    let text = document.getElementById("myBox");
+    text.select();
+    navigator.clipboard.writeText(text.value);
+    document.getSelection().removeAllRanges();
+    props.showAlert("Copied to clipboard","success");
+  }
+
+  const handleClear=()=>{
+    setText("");
+  }
+
+  const handleExtraSpaces=()=>{
+    let newText = text.split(/[ ]+/);
+    setText(newText.join(" "));
+    props.showAlert("Extra spaces removed","success")
+  }
+
   const handleonChange = (event) => {
     // console.log("On Change")
     setText(event.target.value);
@@ -63,13 +81,27 @@ export default function TextForm(props) {
   // text = "new text"// wrong way to change the state
   // setText("new text")// correct way to change the state
 
+  let backStyle = {
+    backgroundColor:
+      props.mode === "dark"
+        ? "#6b6b6b"
+        : props.mode === "primary"
+        ? "#0d3b7f"
+        : props.mode === "success"
+        ? "#0e6c42"
+        : props.mode === "danger"
+        ? "#8b1621"
+        : "#f8f8f8",
+    color: props.mode === "light" ? "black" : "white",
+  };
+
   return (
     <>
       <div
         className="container"
         style={{ color: props.mode === "light" ? "black" : "white" }}
       >
-        <h1>{props.heading}</h1>
+        <h1 className="mb-4">{props.heading}</h1>
         <div className="mb-3">
           <textarea
             className="form-control"
@@ -77,44 +109,57 @@ export default function TextForm(props) {
             rows="8"
             value={text}
             onChange={handleonChange}
-            style={{
-              backgroundColor:
-                props.mode === "dark"
-                  ? "#4f4f4f"
-                  : props.mode === "primary"
-                  ? "#001e4b"
-                  : props.mode === "success"
-                  ? "#004425"
-                  : props.mode === "danger"
-                  ? "#67000a"
-                  : "white",
-              color: props.mode === "light" ? "black" : "white",
-            }}
+            style={backStyle}
           ></textarea>
         </div>
         <button
-          className={`btn btn-${props.mode} mx-2`}
+          disabled={text.length === 0}
+          className={`btn btn-${props.mode} mx-2 my-1`}
           onClick={handleUpClick}
         >
           Convert to UpperCase
         </button>
         <button
-          className={`btn btn-${props.mode} mx-2`}
+          disabled={text.length === 0}
+          className={`btn btn-${props.mode} mx-2 my-1`}
           onClick={handleLoClick}
         >
           Convert to LowerCase
         </button>
         <button
-          className={`btn btn-${props.mode} mx-2`}
+          disabled={text.length === 0}
+          className={`btn btn-${props.mode} mx-2 my-1`}
           onClick={handleAlterClick}
         >
           Convert to AlternateCase
         </button>
         <button
-          className={`btn btn-${props.mode} mx-2`}
+          disabled={text.length === 0}
+          className={`btn btn-${props.mode} mx-2 my-1`}
           onClick={handleTitleClick}
         >
           Convert to TitleCase
+        </button>
+        <button
+          disabled={text.length === 0}
+          className={`btn btn-${props.mode} mx-2 my-1`}
+          onClick={handleCopy}
+        >
+          Copy Text
+        </button>
+        <button
+          disabled={text.length === 0}
+          className={`btn btn-${props.mode} mx-2 my-1`}
+          onClick={handleExtraSpaces}
+        >
+          Remove Extra Spaces
+        </button>
+        <button
+          disabled={text.length === 0}
+          className={`btn btn-${props.mode} mx-2 my-1`}
+          onClick={handleClear}
+        >
+          Clear Text
         </button>
       </div>
       <div
@@ -123,15 +168,27 @@ export default function TextForm(props) {
       >
         <h1>Your text summary</h1>
         <p>
-          {text === "" ? 0 : text.split(" ").length} words and {text.length}{" "}
-          characters
+          {
+            text.split(" ").filter((element) => {
+              return element.length !== 0;
+            }).length
+          }{" "}
+          words and {text.length} characters
         </p>
-        <p>{0.008 * (text === "" ? 0 : text.split(" ").length)} Minutes read</p>
+        <p>
+          {0.008 *
+            (text === ""
+              ? 0
+              : text.split(" ").filter((element) => {
+                  return element.length !== 0;
+                }).length)}{" "}
+          Minutes read
+        </p>
         <h2>Preview</h2>
         <p>
           {text.length > 0
             ? text
-            : "Enter something in the textbox above to preview it here"}
+            : "Nothing to preview"}
         </p>
       </div>
     </>
