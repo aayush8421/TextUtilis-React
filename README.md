@@ -10,8 +10,8 @@ https://aayush8421.github.io/TextUtilis-React/
 
 ## Utilities
 
---Convert to UpperCase
---Convert to LowerCase
---Convert to AlternatingCase
---Convert to TitleCase
+--Convert to UpperCase<br>
+--Convert to LowerCase<br>
+--Convert to AlternatingCase<br>
+--Convert to TitleCase<br>
 --Copy Text
